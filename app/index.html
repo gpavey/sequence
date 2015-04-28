@@ -1,0 +1,93 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="missionBikeApp">
+
+    <!-- Add your site or application content here -->
+  <div class="container-flex">
+      <div class="header text-center">
+        <img src="/images/logo.png">
+      </div>
+
+      <div class="main">
+        <div ng-controller="bikeController">
+          <div >
+            <carousel interval="myInterval">
+              <slide ng-repeat="item in items.products" active="item.active">
+                <div class="item-title">{{item.name}}</div>
+                <img ng-src="{{item.images[0]['main-view']}}" style="margin:auto;">
+                <div ng-controller="ModalCtrl" class="row">
+                   <button class="btn btn-default text-center" ng-click="open(item)">Quick View</button>
+                 </div>
+              </slide>
+            </carousel>
+          </div>
+      </div>
+
+      <div class="footer">
+      </div>
+
+    </div>
+
+      <script type="text/ng-template" id="myModalContent.html">
+        <div class="row modal-popup">
+          <div class="col-sm-8 img-responsive">
+
+            <img ng-src="{{item.images[0]['main-view']}}">
+            <ul class="row">
+              <div ng-repeat="item in items.products" active="item.active">
+                <li class="col-xs-2 nopadding"><img ng-src="{{item.images[0]['alt-view']}}" style="margin:auto;"></li>
+              </div>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <div class="modal-body">
+                <span class="item-name">{{item.name}}</span> <button type="button" class="close" ng-click="cancel()"><span aria-hidden="true">X</span></button>
+                <div class="item-description">{{item.description}}</div>
+                <button class="item-price btn btn-success"> Buy Now {{item.price}}</button>
+            </div>
+          </div>
+        </div>
+<!--         <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div> -->
+    </script>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+
+        <!-- endbuild -->
+</body>
+</html>
