@@ -1,18 +1,33 @@
-/* Space out content a bit */
+
+/* font-family: 'Playfair Display', serif;
+font-family: 'Montserrat', sans-serif;*/
+
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+ul {
+  padding:0;
+  margin:0;
+  list-style-type: none;
+  display: inline-block;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 .header,
-.marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
 }
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.btn {
+  border-radius: 0px;
+}
 
-/* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -30,7 +45,24 @@ body {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
+.modal-popup img {
+  width: 100%;
+}
 
+.modal-dialog {
+  width: 80%;
+}
+.item-title,.item-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+}
+.item-title {
+  font-size: 36px;
+}
+.item-name {
+  font-size: 24px;
+}
 /* Customize container */
 @media (min-width: 768px) {
   .container {
@@ -41,39 +73,13 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
   .header,
-  .marketing,
   .footer {
     padding-left: 0;
     padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
   }
 }
